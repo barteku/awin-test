@@ -6,13 +6,19 @@ namespace App\Manager;
 
 class CoffeeBreakPreferenceManager extends ModelManager
 {
-
-    public function getPreferencesForToday($team = 'developers'){
-        return $this->getRepository()->getPreferencesForToday($team);
+    /**
+     * @param string $team
+     * @return array
+     */
+    public function getPreferencesForToday(string $team = 'developers'){
+        return $this->getRepository()->getPreferencesForTodayForTeam($team);
     }
 
-
-    public function getPreferencesForTodayForUser($userId){
+    /**
+     * @param int $userId
+     * @return array
+     */
+    public function getPreferencesForTodayForUser(int $userId){
         return $this->getRepository()->getPreferencesForTodayForUser($userId);
     }
 

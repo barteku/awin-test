@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -22,11 +23,13 @@ class StaffMember
     protected $id;
     /**
      * @ORM\Column(name="name", length=255)
+     * @Assert\NotBlank
      * @var string
      */
     protected $name;
     /**
      * @ORM\Column(name="email", length=255)
+     * @Assert\NotBlank
      * @var string
      */
     protected $email;
@@ -46,6 +49,7 @@ class StaffMember
      * @var OfficeTeam $team
      *
      * @ORM\ManyToOne(targetEntity="OfficeTeam", inversedBy="teamMembers")
+     * @Assert\NotBlank
      */
     protected $team;
 
@@ -127,5 +131,4 @@ class StaffMember
     public function getTeam(){
         return $this->team;
     }
-
 }

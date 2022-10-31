@@ -13,11 +13,11 @@
         "php": ">=7.0.8",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "barteku/coffee-source": "1.*",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^1.12",
         "doctrine/doctrine-migrations-bundle": "^3.0",
-        "doctrine/orm": "^2.7",
+        "doctrine/orm": "^2.5",
+        "symfony/http-foundation": "^3.4",
         "laminas/laminas-zendframework-bridge": "*",
         "phpdocumentor/reflection-docblock": "^5.3",
         "sensio/framework-extra-bundle": "^5.1",
@@ -44,6 +44,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "liip/test-fixtures-bundle": "^1.0.0",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "3.4.*",
         "symfony/css-selector": "3.4.*",
@@ -60,7 +61,8 @@
         },
         "sort-packages": true,
         "allow-plugins": {
-            "symfony/flex": true
+            "symfony/flex": true,
+            "ocramius/package-versions": true
         }
     },
     "autoload": {

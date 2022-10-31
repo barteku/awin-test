@@ -4,11 +4,10 @@
 namespace App\Services;
 
 
-use Awin\Tools\CoffeeBreak\Entity\CoffeeBreakPreference;
-use Awin\Tools\CoffeeBreak\Entity\StaffMember;
-use http\Exception\RuntimeException;
+use App\Entity\CoffeeBreakPreference;
+use App\Entity\StaffMember;
 
-class EmailNotifier
+class EmailNotifier implements NotifierInterface
 {
 
     /**
@@ -19,7 +18,7 @@ class EmailNotifier
     public function notifyStaffMember(StaffMember $staffMember, CoffeeBreakPreference $preference)
     {
         if (empty($staffMember->getEmail())) {
-            throw new RuntimeException("Cannot send notification - no Email");
+            throw new \RuntimeException("Cannot send notification - no Email");
         }
 
 

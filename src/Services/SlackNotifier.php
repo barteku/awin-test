@@ -4,7 +4,7 @@ namespace App\Services;
 use App\Entity\StaffMember;
 use App\Entity\CoffeeBreakPreference;
 
-class SlackNotifier
+class SlackNotifier implements NotifierInterface
 {
     /**
      * @param StaffMember $staffMember

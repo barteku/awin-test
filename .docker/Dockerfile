@@ -20,17 +20,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Authorize SSH Host
-RUN mkdir -p /root/.ssh && \
-    chmod 0700 /root/.ssh && \
-    ssh-keyscan github.com > /root/.ssh/known_hosts
-
-ARG ssh_prv_key
-
-# Add the keys and set permissions
-COPY $ssh_prv_key /root/.ssh/id_rsa
-RUN chmod 600 /root/.ssh/id_rsa
-
 
 # setting up project
 WORKDIR /var/www/

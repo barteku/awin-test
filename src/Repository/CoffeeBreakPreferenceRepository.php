@@ -10,11 +10,7 @@ use Doctrine\ORM\EntityRepository;
 class CoffeeBreakPreferenceRepository extends EntityRepository
 {
 
-    public function getPreferencesForToday($team = 'developers'){
-        return $this->getPreferencesForTodayForTeam($team);
-    }
-
-    public function getPreferencesForTodayForUser($userId){
+    public function getPreferencesForTodayForUser(int $userId){
         $alias = "cbp";
         $qb = $this->createQueryBuilder($alias)
             ->innerJoin(sprintf("%s.requestedBy", $alias), 'u')
@@ -30,10 +26,7 @@ class CoffeeBreakPreferenceRepository extends EntityRepository
     }
 
 
-
-
-
-    private function getPreferencesForTodayForTeam($team){
+    public function getPreferencesForTodayForTeam(string $team = 'developers'){
         $alias = "cbp";
         $qb = $this->createQueryBuilder($alias)
             ->innerJoin(sprintf("%s.requestedBy", $alias), 'u')
